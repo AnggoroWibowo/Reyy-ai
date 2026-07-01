@@ -4,9 +4,17 @@ workflows:
     environment:
       node: 20.0.0
     scripts:
-      - cd ReyyyAI
-      - npm install
-      - npm install -g eas-cli
-      - EXPO_TOKEN=C4UIskBKdggk8X_7pvhy8_b4PBXpweBKU1NFu9gQ eas build --platform android --profile preview
+      - name: Install dependencies
+        script: |
+          cd ReyyyAI
+          npm install
+      - name: Install EAS CLI
+        script: |
+          cd ReyyyAI
+          npm install -g eas-cli
+      - name: Build APK
+        script: |
+          cd ReyyyAI
+          EXPO_TOKEN=C4UIskBKdggk8X_7pvhy8_b4PBXpweBKU1NFu9gQ eas build --platform android --profile preview
     artifacts:
       - ReyyyAI/build/**/*.apk
