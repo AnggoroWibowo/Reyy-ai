@@ -1,0 +1,11 @@
+workflows:
+  reyyy-ai-build:
+    name: REYYY AI Build
+    environment:
+      node: 20.0.0
+    scripts:
+      - npm install
+      - npm install -g eas-cli
+      - EXPO_TOKEN=C4UIskBKdggk8X_7pvhy8_b4PBXpweBKU1NFu9gQ eas build --platform android --profile preview
+    artifacts:
+      - build/**/*.apk
